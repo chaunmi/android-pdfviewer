@@ -3,6 +3,7 @@ package com.danjdt.pdfviewer.view
 import android.app.Activity
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Color
 import android.os.Build
 
 import android.view.MotionEvent
@@ -16,6 +17,7 @@ import com.danjdt.pdfviewer.view.adapter.DefaultPdfPageAdapter
 import com.danjdt.pdfviewer.view.adapter.PdfPageAdapter
 import com.danjdt.pdfviewer.interfaces.OnPageChangedListener
 import com.danjdt.pdfviewer.interfaces.PdfViewInterface
+import com.danjdt.pdfviewer.itemdecoration.LinearDividerItemDecoration
 import com.danjdt.pdfviewer.utils.Utils
 import java.io.File
 import java.lang.Exception
@@ -54,7 +56,14 @@ class PdfViewerRecyclerView(context: Context) :
     init {
         mScaleGestureDetector = ScaleGestureDetector(context, ScaleListener())
         adapter = DefaultPdfPageAdapter(context)
-        layoutManager = ExtraSpaceLinearLayoutManager(context)
+        layoutManager = ExtraSpaceLinearLayoutManager(context).apply {
+            orientation = LinearLayoutManager.VERTICAL
+        }
+    //    setBackgroundColor(Color.LTGRAY)
+        addItemDecoration(LinearDividerItemDecoration.Builder().
+        setDividerHeight(35).
+        isShowLastDivider(false).
+        setOrientation(LinearLayoutManager.VERTICAL).build())
     }
 
     override fun setup(file: File) {

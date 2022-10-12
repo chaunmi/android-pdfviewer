@@ -1,6 +1,7 @@
 package com.danjdt.pdfviewer.view.adapter
 
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.util.Size
@@ -36,5 +37,6 @@ class DefaultPdfPageViewHolder(view: View, pdfRenderer: PdfRendererInterface, pa
 
     override fun displayPlaceHolder() {
         image.setImageDrawable(placeHolder)
+    //    image.setBackgroundColor(Color.LTGRAY)
     }
 }

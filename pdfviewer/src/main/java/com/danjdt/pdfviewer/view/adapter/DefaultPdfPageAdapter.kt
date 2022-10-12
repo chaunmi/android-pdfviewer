@@ -29,8 +29,8 @@ class DefaultPdfPageAdapter(private val context: Context) :
     }
 
     companion object {
-        private const val PADDING = 4
-        const val DEFAULT_COLOR = 0xFFFFFF
+        private const val PADDING = 50
+        const val DEFAULT_COLOR = 0xFF0000
         const val TAG = "DefaultPdfPageAdapterContainer"
     }
 }
